@@ -34,6 +34,17 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler
+    public ResponseEntity<OnlineShopErrorResponse> handleException(AddressNotFoundException exc) {
+        // create CustomerErrorResponse
+        OnlineShopErrorResponse error = new OnlineShopErrorResponse(
+                HttpStatus.BAD_REQUEST.value(),
+                exc.getMessage(),
+                System.currentTimeMillis());
+        // return ResponseEntity
+        return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
+    }
+
 
     @ExceptionHandler
     public ResponseEntity<OnlineShopErrorResponse> handleException(CustomerNotFoundException exc) {

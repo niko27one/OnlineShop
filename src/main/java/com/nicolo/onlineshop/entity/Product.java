@@ -25,6 +25,7 @@ public class Product {
     private String image;
     //to make image a list and a separate class and review class,
 
-   /* @ManyToMany(cascade= {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.DETACH, CascadeType.REFRESH})
-    private List<Order> orders;*/
+    @ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,CascadeType.DETACH, CascadeType.REFRESH} )
+    @JoinColumn(name="orders_id")
+    private Order orders;
 }

@@ -11,6 +11,7 @@ public class Login {
 
     //annotation that state ID is the primary key
     @Id
+    @Column(name = "login_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)//auto increments the primary key
     private Long id;
 

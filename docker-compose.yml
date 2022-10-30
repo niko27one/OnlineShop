@@ -1,5 +1,4 @@
 version: "3.8"
-services:
   mysqldb:
     container_name: mysql
     image: mysql/mysql-server:latest
@@ -10,6 +9,8 @@ services:
       - MYSQL_ROOT_PASSWORD=$MYSQLDB_ROOT_PASSWORD
       - MYSQLDB_DATABASE=$MYSQLDB_DATABASE
       - MYSQL_ROOT_HOST=%
+    networks:
+      - springmysql-net
     ports:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:

@@ -1,7 +1,5 @@
 package com.nicolo.onlineshop.entity;
-
 import lombok.*;
-
 import javax.persistence.*;
 
 @NoArgsConstructor
@@ -14,7 +12,7 @@ import javax.persistence.*;
 public class Address {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "address_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     private String street;
@@ -22,8 +20,10 @@ public class Address {
     private String city;
     private String postCode;
     private String country;
+    private Boolean isDefault;
 
-    @ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})//if is join colum, no mapped by is needed
+    @ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+        CascadeType.DETACH, CascadeType.REFRESH})//if is join colum, no mapped by is needed
     @JoinColumn(name="customer_id")
     private Customer customer;
 }

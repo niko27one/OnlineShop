@@ -19,4 +19,11 @@ public class LoginValidation implements ValidationService<LoginRequest> {
         Optional<List<Login>> logins = logInRepository.findByEmailAndPassword(arg.getEmail(),arg.getPassword());
         return logins.isPresent() && !logins.get().isEmpty();
     }
+
+    @Override
+    public boolean checkValidParameters(LoginRequest arg) throws Exception {
+        return false;
+    }
+
+
 }

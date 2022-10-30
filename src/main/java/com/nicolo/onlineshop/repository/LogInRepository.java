@@ -1,12 +1,12 @@
 package com.nicolo.onlineshop.repository;
 import com.nicolo.onlineshop.entity.Login;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface LogInRepository extends JpaRepository<Login, Long>{
+public interface LogInRepository extends CrudRepository<Login, Long> {
 
     Optional<List<Login>> findByEmailAndPassword (String email,String password);// tis use JPQL to make the query
 

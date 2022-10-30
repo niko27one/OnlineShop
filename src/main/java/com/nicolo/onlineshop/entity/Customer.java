@@ -14,21 +14,22 @@ import java.util.List;
 public class Customer {
 
     @Id
-    @Column(name = "id")
+    @Column(name = "customer_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
     private String firstName;
     private String lastName;
     private LocalDateTime dob;
     private String mobileNo;
 
+
     @OneToMany(cascade = CascadeType.ALL , mappedBy = "customer" )//Persist say to the hibernate object what to do with the dependency
     private List<Address> addresses;
 
-    @OneToOne(cascade = CascadeType.ALL , mappedBy = "customer" )
+    @OneToOne( cascade= CascadeType.ALL , mappedBy = "customer" )
     private Login login;
 
-    @OneToMany(cascade = CascadeType.ALL , mappedBy = "customer" )//Persist say to the hibernate object what to do with the dependency
+    @OneToMany( cascade= CascadeType.ALL , mappedBy = "customer" )//Persist say to the hibernate object what to do with the dependency
     private List<Order> orders;
 
 }

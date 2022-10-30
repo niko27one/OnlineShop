@@ -22,5 +22,10 @@ public class RegisterValidation implements ValidationService<String> {
         return false;
     }
 
+    @Override
+    public boolean checkValidParameters(String arg) throws Exception {
+        return false;
+    }
+
 
 }
